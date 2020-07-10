@@ -22,6 +22,8 @@ right->action = some_function;
 GestureVector *vector = gesture_vector_create();
 vector->x = 200;
 vector->y = 0;
+// More points?
+// vector->next = somenewvector;
 
 right->vector = vector;
 
@@ -32,6 +34,7 @@ Gesture *complex = gesture_create();
 complex->id = 1;
 complex->action = some_function;
 
+// Quick create list of vectors, no need to set vector->next manually
 int points[] = {50, -100, 100, 0, 0, 0};
 GestureVector *vector = gesture_vector_create_from_array(points, 3);
 complex->vector = vector;
@@ -56,3 +59,4 @@ gesture_finish();
 
 - The tolerance can be changed
 - e.g.: `GESTURE_TOLERANCE = 100;`
+- The action is called with the id of the gesture
